@@ -100,7 +100,9 @@ function Contact() {
           </div>
           
           <div className="form-group">
-            <textarea
+            <textarea style={{
+               color:"black"
+            }}
               name="message"
               placeholder="Your Message"
               className={errors.message ? "error" : ""}
