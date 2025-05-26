@@ -1,0 +1,126 @@
+/* Navbar2.css */
+
+/* Base styles */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  background-color: #2c3e50;
+  padding: 0.5rem 1rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation tabs container */
+.nav-tabs {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  padding: 0.5rem 0;
+  flex: 1;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.nav-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+/* Navigation items */
+.nav-item {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.nav-item.active {
+  background-color: #999;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Scroll buttons */
+.scroll-button {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.scroll-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.scroll-button.left {
+  margin-right: 0.5rem;
+}
+
+.scroll-button.right {
+  margin-left: 0.5rem;
+}
+
+/* Hide scroll buttons when not needed */
+.scroll-button.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0.5rem;
+  }
+
+  .nav-item {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .scroll-button {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-item {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .scroll-button {
+    width: 28px;
+    height: 28px;
+  }
+
+  .scroll-button.left {
+    margin-right: 0.3rem;
+  }
+
+  .scroll-button.right {
+    margin-left: 0.3rem;
+  }
+}

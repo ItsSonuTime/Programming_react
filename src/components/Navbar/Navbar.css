@@ -1,0 +1,228 @@
+/* CSS Variables for theming */
+:root {
+  --primary-dark: #1a2b4c;
+  --primary-light: #ffffff;
+  --accent-color: #4a6cf7;
+  --text-dark: #2c3e50;
+  --text-light: #f8f9fa;
+  --transition-speed: 0.3s;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Base styles */
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: var(--primary-light);
+  box-shadow: 0 2px 10px var(--shadow-color);
+  z-index: 1000;
+  transition: all var(--transition-speed) ease-in-out;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 4px 20px var(--shadow-color);
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.navbar.dark {
+  background-color: var(--primary-dark);
+  color: var(--text-light);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo styles */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  height: 40px;
+  width: auto;
+  transition: transform var(--transition-speed) ease;
+}
+
+.logo-image:hover {
+  transform: scale(1.05);
+}
+
+/* Navigation links */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text-dark);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color var(--transition-speed) ease;
+}
+
+.dark .nav-link {
+  color: var(--text-light);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--accent-color);
+  transition: width var(--transition-speed) ease;
+}
+
+.nav-link:hover {
+  color: var(--accent-color);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  transition: transform var(--transition-speed) ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(360deg);
+}
+
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 100;
+}
+
+.hamburger-line {
+  display: block;
+  width: 25px;
+  height: 2px;
+  margin: 5px 0;
+  background-color: var(--text-dark);
+  transition: all var(--transition-speed) ease;
+}
+
+.dark .hamburger-line {
+  background-color: var(--text-light);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: var(--primary-light);
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-speed) ease-in-out;
+  }
+
+  .dark .nav-links {
+    background-color: var(--primary-dark);
+  }
+
+  .nav-links.active {
+    height: auto;
+    opacity: 1;
+    visibility: visible;
+    padding: 2rem;
+    box-shadow: 0 4px 10px var(--shadow-color);
+  }
+
+  /* Hamburger animation */
+  .hamburger.active .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+/* Accessibility focus styles */
+.nav-link:focus,
+.theme-toggle:focus,
+.hamburger:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 4px;
+}
+
+/* Additional responsive adjustments */
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0.8rem 1rem;
+  }
+
+  .logo-image {
+    height: 32px;
+  }
+}
+
+/* Animation keyframes */
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Apply animations */
+.nav-links.active .nav-link {
+  animation: slideDown 0.3s ease forwards;
+}
+
+.nav-links.active .nav-link:nth-child(1) { animation-delay: 0.1s; }
+.nav-links.active .nav-link:nth-child(2) { animation-delay: 0.2s; }
+.nav-links.active .nav-link:nth-child(3) { animation-delay: 0.3s; }
+.nav-links.active .nav-link:nth-child(4) { animation-delay: 0.4s; }
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+} 

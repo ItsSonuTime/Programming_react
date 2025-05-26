@@ -1,0 +1,46 @@
+.table-container {
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+    background: #000000;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  
+  }
+  
+  .Haedering{
+    color: rgb(102, 102, 102);
+    margin-bottom: 15px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  th, td {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+    text-align: left;
+  }
+  
+  th {
+    background: #333;
+    color: #000000;
+  }
+  
+  tr:hover {
+    background: #292929;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .css-tag {
+    background: #444;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  

@@ -1,0 +1,155 @@
+.hero-container {
+  display: flex;
+  justify-content: center;
+  min-height: 100%;
+  background-color: #f3f4f6;
+}
+
+.hero-content {
+  display: flex;
+  flex-wrap: wrap;
+  background: white;
+
+
+padding-top: 20px;
+padding-right: 20px;
+padding-left: 20px;
+padding-bottom: 20px;
+
+  width: 100%;
+}
+
+.hero-text {
+  width: 100%;
+
+ }
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+.highlight {
+  color: #888;
+}
+
+p {
+  margin-top: 15px;
+  color: gray;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.primary-btn {
+  background-color: #444;
+  color: white;
+
+  padding: 10px 25px;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+
+
+}
+.primary-btn a{
+  text-decoration: none;
+  color: white;
+}
+
+.primary-btn:hover {
+  background-color: #333;
+}
+.secondary-btn {
+  background-color: #444;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+
+.Translate-button{
+  margin-top: 20px;
+  background-color: #333;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+
+}
+.Html{
+  margin-top: 20px;
+}
+
+.CSS{
+  margin-top: 20px;
+}
+
+.JavaScript{
+margin-top: 20px;
+margin-bottom: 20px;
+}
+.react{
+  margin-bottom: 20px;
+}
+.Learn-more{
+
+background-color: #333;
+color: white;
+height: 30px;
+width: 130px;
+border-radius: 5px;
+border: none;
+cursor: pointer;
+
+}
+.Learn-more a{
+text-decoration: none;
+color: white;
+}
+.footer {
+background-color: #222;
+color: #fff;
+text-align: center;
+padding: 20px;
+position: relative;
+bottom: 0;
+
+width: 100%;
+}
+
+.footer-container {
+max-width: 1200px;
+margin: auto;
+}
+
+.footer-links {
+list-style: none;
+padding: 0;
+}
+
+.footer-links li {
+display: inline;
+margin: 0 10px;
+}
+
+.footer-links a {
+color: #fff;
+text-decoration: none;
+}
+
+.footer-links a:hover {
+text-decoration: underline;
+}

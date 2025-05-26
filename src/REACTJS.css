@@ -1,0 +1,538 @@
+/* Base styles with CSS variables for better maintainability */
+:root {
+  --primary-color: #61DAFB;
+  --secondary-color: #000000;
+  --text-color: #282C34;
+  --border-color: #eaeaea;
+  --background-light: #fafafa;
+  --spacing-unit: 1rem;
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.ReactJs-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: clamp(10px, 2vw, 20px);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.react-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+  padding-bottom: clamp(0.5rem, 2vw, 1rem);
+  border-bottom: 3px solid var(--border-color);
+  flex-wrap: wrap;
+  gap: var(--spacing-unit);
+  animation: slideIn 0.5s ease-out;
+}
+
+.react-header h1 {
+  color: var(--text-color);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin: 0;
+  line-height: 1.2;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.language-toggle {
+  background: var(--secondary-color);
+  color: #fff;
+  border: none;
+  padding: clamp(8px, 1.5vw, 10px) clamp(16px, 2vw, 20px);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  transition: all var(--transition-speed) ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+.language-toggle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease-out;
+}
+.language-toggle:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+@media (hover: hover) {
+  .language-toggle:hover {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.react-content section {
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(12px, 2vw, 20px);
+  background: white;
+ 
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-speed) ease;
+  animation: scaleIn 0.5s ease-out;
+  animation-fill-mode: both;
+}
+.react-content section:hover {
+  transform: translateY(-5px);
+}
+
+.react-content h2 {
+  color: var(--text-color);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: clamp(0.3rem, 1vw, 0.5rem);
+  position: relative;
+}
+.react-content h2::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+.react-content section:hover h2::after {
+  width: 100%;
+}
+
+.react-content p {
+  color: var(--text-color);
+  line-height: 1.6;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  max-width: 70ch;
+}
+
+/* Responsive Grid Layouts */
+.feature-grid {
+  display: grid;
+  gap: clamp(15px, 2vw, 20px);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+}
+
+/* Card Styles */
+.feature-card {
+
+  background: var(--background-light);
+  padding: clamp(12px, 2vw, 20px);
+  border-radius: var(--border-radius);
+  height: 100%;
+  display: flex;
+  
+  flex-direction: column;
+  transition: all var(--transition-speed) ease;
+  border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+@media (hover: hover) {
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+  .feature-card:hover::before {
+    transform: scaleX(1);
+  }
+}
+
+/* Code Block Styles */
+.code-block {
+  background: #1a1a1a;
+  padding: clamp(12px, 2vw, 20px);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  position: relative;
+}
+pre {
+  background: #1a1a1a;
+  color: #fff;
+  padding: clamp(8px, 1.5vw, 15px);
+  border-radius: calc(var(--border-radius) - 2px);
+  overflow-x: auto;
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) #1a1a1a;
+  position: relative;
+}
+pre code {
+  color: #fff;
+  display: block;
+  padding: 1rem;
+  font-family: 'Fira Code', monospace;
+}
+pre::-webkit-scrollbar {
+  height: 6px;
+}
+pre::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+pre::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 3px;
+}
+
+/* React Logo Animation */
+.react-logo {
+  animation: spin 20s linear infinite;
+  width: 50px;
+  height: 50px;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #ffffff;
+    --background-light: #20232A;
+    --border-color: #373940;
+  }
+
+  .ReactJs-container {
+    background: var(--secondary-color);
+    color: var(--text-color);
+  }
+
+  .react-content section {
+    background: #20232A;
+  }
+
+  .feature-card {
+    background: #282C34;
+    border-color: #373940;
+  }
+
+  pre {
+    background: #1A1A1A;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .react-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .react-content section {
+    margin-bottom: 1rem;
+  }
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .react-header {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  .ReactJs-container {
+    padding: 8px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .ReactJs-container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .language-toggle {
+    display: none;
+  }
+
+  .react-content section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Table Styles */
+.table-container {
+  margin: 2rem 0;
+  overflow-x: auto;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--background-light);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.comparison-table th {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.comparison-table tr:hover {
+  background: rgba(97, 218, 251, 0.1);
+}
+
+/* Button Styles */
+.Button {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  color: #fff;
+  border: none;
+  padding: 12px 32px;
+  border-radius: var(--border-radius);
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  box-shadow: 0 2px 8px rgba(97, 218, 251, 0.13);
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  outline: none;
+}
+
+.Button:hover {
+  background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 24px rgba(97, 218, 251, 0.18);
+}
+
+/* Modal Overlay for See More Section */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(2.5px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.4s;
+  transition: background 0.3s;
+}
+
+/* Modal Content (See More Section) */
+.see-more-section {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 12px 48px 0 rgba(0,0,0,0.28), 0 1.5px 0 0 var(--primary-color);
+  z-index: 1100;
+  max-width: 700px;
+  width: 96vw;
+  max-height: 92vh;
+  overflow-y: auto;
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
+  animation: modalPopIn 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2.5px solid var(--primary-color);
+  transition: box-shadow 0.3s, border 0.3s;
+}
+
+@keyframes modalPopIn {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.92); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+@media (max-width: 600px) {
+  .see-more-section {
+    max-width: 99vw;
+    padding: 1.1rem 0.3rem 1.1rem 0.3rem;
+    border-radius: 13px;
+  }
+  .see-more-section .feature-grid {
+    grid-template-columns: 1fr !important;
+    gap: 8px;
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: #fff;
+  border: 2px solid var(--primary-color);
+  font-size: 2.2rem;
+  color: var(--secondary-color);
+  cursor: pointer;
+  z-index: 1200;
+  transition: color 0.2s, background 0.2s, border 0.2s, transform 0.2s;
+  line-height: 1;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(97, 218, 251, 0.13);
+}
+.modal-close:hover, .modal-close:focus {
+  color: #000000;
+  background: var(--primary-color);
+  border: 2px solid var(--secondary-color);
+  transform: scale(1.13);
+  outline: none;
+}
+
+.see-more-section::-webkit-scrollbar {
+  width: 8px;
+  background: #f0f0f0;
+}
+.see-more-section::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 8px;
+}
+
+body.modal-open {
+  overflow: hidden !important;
+  touch-action: none;
+}
+.modal-open .ReactJs-container {
+  pointer-events: none;
+}
+.modal-open .modal-overlay,
+.modal-open .see-more-section {
+  pointer-events: auto;
+}
+
+@media (max-width: 480px) {
+  .ReactJs-container {
+    padding: 4px;
+  }
+  .react-header {
+    flex-direction: column;
+    gap: 0.3rem;
+    padding-bottom: 0.5rem;
+  }
+  .react-header h1 {
+    font-size: 1.1rem;
+  }
+  .language-toggle {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+  .react-content section {
+    padding: 8px;
+    margin-bottom: 0.7rem;
+  }
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .feature-card {
+    padding: 8px;
+    font-size: 0.97rem;
+  }
+  .Button {
+    padding: 10px 18px;
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+  .see-more-section {
+    padding: 0.7rem 0.1rem 1rem 0.1rem;
+    max-width: 99vw;
+    min-width: 0;
+    border-radius: 8px;
+    font-size: 0.97rem;
+  }
+  .modal-close {
+    width: 38px;
+    height: 38px;
+    font-size: 1.7rem;
+    top: 6px;
+    right: 7px;
+  }
+  .see-more-section h2 {
+    font-size: 1.1rem;
+  }
+  .see-more-section .feature-card h3 {
+    font-size: 1rem;
+  }
+  .see-more-section .feature-card p,
+  .see-more-section .feature-card pre {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .see-more-section {
+    padding: 0.2rem 0.05rem 0.5rem 0.05rem;
+    font-size: 0.9rem;
+  }
+  .modal-close {
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+  }
+}
+
+

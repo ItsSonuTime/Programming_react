@@ -1,0 +1,267 @@
+*{
+     margin: 0;
+      padding: 0;
+      
+}
+.header{
+     background-color:violet;
+     display: flex;
+     justify-content: space-between;
+     padding: 20px;
+     
+
+}
+.College .link{
+     text-decoration: none;
+     font-size: 1.2rem;
+     margin-left: 20px;
+}
+
+
+.table-container {
+     padding: 20px;
+     max-width: 100%;
+   }
+   
+   .table-title {
+     text-align: center;
+     font-size: 24px;
+     font-weight: bold;
+     margin-bottom: 20px;
+   }
+   
+   .table-wrapper {
+     overflow-x: auto;
+   }
+   
+   .comparison-table {
+     width: 100%;
+     min-width: 600px;
+     border-collapse: collapse;
+     border: 1px solid #ccc;
+   }
+   
+   .comparison-table th,
+   .comparison-table td {
+     border: 1px solid #ccc;
+     padding: 12px;
+     text-align: left;
+   }
+   
+   .comparison-table thead {
+     background-color: #f2f2f2;
+     color: black;
+   }
+   
+   .comparison-table tr:hover {
+     background-color: #f9f9f9;
+     color: black;
+   }
+   
+   @media (max-width: 768px) {
+     .table-title {
+       font-size: 20px;
+     }
+   
+     .comparison-table th,
+     .comparison-table td {
+       padding: 10px;
+       font-size: 14px;
+     }
+   }
+   
+
+
+
+
+
+   .table-container {
+    padding: 20px;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .hooks-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .hooks-table th,
+  .hooks-table td {
+    border: 1px solid black;
+    padding: 12px 15px;
+    text-align:left;
+  }
+  
+  .hooks-table th {
+    background-color: black;
+    font-weight: bold;
+  }
+  
+  .hooks-table tr:nth-child(even) {
+    background-color: black;
+  }
+  
+  .hooks-table tr:hover {
+    background-color: black;
+  }
+  .Button {
+    background-color: #222; /* Classic blue */
+    color: white;
+    border: 2px solid rgb(0, 0, 0);
+    padding: 12px 24px;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .Button:hover {
+    background-color: white;
+    color: #222;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+  
+
+  .project-container {
+    padding: 40px;
+    background-color: #f3f3f3;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+  }
+  
+  .project-heading {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+  
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  
+  .project-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  
+  .project-card h2 {
+    font-size: 1.2em;
+    margin-bottom: 8px;
+  }
+  
+  .project-card .category {
+    color: #666;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .see-more-wrapper {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .see-more-button {
+    background-color: #222;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .see-more-button:hover {
+    background-color: rgb(240, 236, 240);
+    color: #8d8d8d;
+  }
+  
+
+
+/* Basic styling for the Course component */
+.course-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.course-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 30px;
+  font-family: 'Arial', sans-serif;
+}
+
+.course-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0;
+  justify-items: center;
+}
+
+.course-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  max-width: 300px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.course-card-title {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.course-card-description {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.course-link {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #222;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.course-link:hover {
+  background-color: #222;
+  transform: scale(1.05);
+}
+
+.course-card-title, .course-card-description {
+  font-family: 'Arial', sans-serif;
+}
+
+

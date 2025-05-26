@@ -1,0 +1,62 @@
+.typed-text-container {
+  display: inline-block;
+  position: relative;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.typed-text {
+  display: inline-block;
+  background: linear-gradient(120deg, #3498db, #2ecc71, #e74c3c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: gradientText 8s linear infinite;
+}
+
+.cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  background-color: #ffffff;
+  margin-left: 5px;
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes gradientText {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .typed-text-container {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .typed-text-container {
+    font-size: 1.5rem;
+  }
+} 
