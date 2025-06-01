@@ -77,7 +77,7 @@ function Contact() {
           <p>Your message has been sent successfully!</p>
           <button onClick={() => setIsSuccess(false)}>Send another message</button>
         </div>
-      ) : (
+      ) : ( 
         <form onSubmit={onSubmit} className="contact-form" noValidate>
           <div className="form-group">
             <input

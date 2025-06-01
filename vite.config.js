@@ -11,5 +11,6 @@ export default defineConfig({
   },
   css: {
     postcss: './postcss.config.js'
-  }
+  },
+  base: '/Programming_react/'
 })
